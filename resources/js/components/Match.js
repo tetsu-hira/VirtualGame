@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import axios from 'axios';
 import { UserData } from './Top';
 import { TeamData } from './Top';
@@ -22,15 +22,13 @@ const Match = () => {
     const player7 = player.find((v) => v.name === team[2].name);
     const player8 = player.find((v) => v.name === team[3].name);
 
-    const refX = useRef(countA);
-    useEffect(() => {
-      refX.current = countA;
-    }, [countA]);
-    useEffect(() => {
-      setInterval(() => {
-        console.log(refX.current);
-      }, 1000);
-    }, []);
+    console.log({player1});
+    console.log({player2});
+    console.log({player3});
+    console.log({player4});
+    if ((player1.power + player2.power + player3.power + player4.power) > 3 && countA <= 14) {
+      setCountA(countA + 1);
+    }
   }
 
   useEffect(() => {
@@ -40,6 +38,15 @@ const Match = () => {
     const response = await axios.get('/api/player');
     setPlayer(response.data.players)
   }
+
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     console.log(countA)
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(timer)
+  //   }
+  // },[countA])
 
   return (
     <>

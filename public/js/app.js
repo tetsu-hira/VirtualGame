@@ -2332,15 +2332,22 @@ var Match = function Match() {
     var player8 = player.find(function (v) {
       return v.name === team[3].name;
     });
-    var refX = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(countA);
-    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-      refX.current = countA;
-    }, [countA]);
-    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-      setInterval(function () {
-        console.log(refX.current);
-      }, 1000);
-    }, []);
+    console.log({
+      player1: player1
+    });
+    console.log({
+      player2: player2
+    });
+    console.log({
+      player3: player3
+    });
+    console.log({
+      player4: player4
+    });
+
+    if (player1.power + player2.power + player3.power + player4.power > 3 && countA <= 14) {
+      setCountA(countA + 1);
+    }
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
@@ -2372,7 +2379,15 @@ var Match = function Match() {
     return function getPlayer() {
       return _ref.apply(this, arguments);
     };
-  }();
+  }(); // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     console.log(countA)
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(timer)
+  //   }
+  // },[countA])
+
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
