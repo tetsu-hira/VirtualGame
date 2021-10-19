@@ -1,0 +1,53 @@
+.StartButton {
+  background: $SecondaryColor;
+  font-size: 1rem;
+  width: 9em;
+  height: 3em;
+  line-height: 20px;
+  text-align: center;
+  color: $WhiteColor;
+  border-top: 1px solid #e7e4e1;
+  border-left: 1px solid #e7e4e1;
+  border-bottom: 2px solid #c9b39d;
+  border-right: 2px solid #c9b39d;
+  border-radius: 4px;
+  // box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 16%);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  margin-left: 3em;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    box-shadow: none;
+    border: 1px solid $SecondaryColor;
+    border-bottom: 2px solid $SecondaryColor;
+    border-right: 2px solid $SecondaryColor;
+  }
+}
+
+.DeleteButton {
+  background: $WhiteColor;
+  font-size: 12px;
+  width: 3em;
+  height: auto;
+  line-height: 20px;
+  text-align: center;
+  color: $FontColor;
+  border-radius: 4px;
+  margin: 5px 0 5px 10px;
+  border: 1px solid $FontColor;
+  &:hover {
+    // color: red;
+    // transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  &:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+    border: 1px solid $PrimaryColor;
+  }
+}

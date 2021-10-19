@@ -1,0 +1,32 @@
+.Point {
+  float: right;
+  position: absolute;
+  top: 40%;
+  left: 100%;
+  -webkit-transform : translate(0%, -60%);
+  transform : translate(0%, -60%);;
+  &Flex {
+    display: flex;
+  }
+  &TeamA {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1em;
+  }
+  &Row {
+    font-size: 4rem;
+    font-weight: 600;
+    padding-top: 55px;
+  }
+  &TeamB {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1em;
+  }
+  .name {
+    text-align: center;
+  }
+  .point {
+    font-size: 4rem;
+  }
+}
