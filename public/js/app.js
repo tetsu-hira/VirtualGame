@@ -2304,34 +2304,74 @@ var Match = function Match() {
       countB = _useState6[0],
       setCountB = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      player1 = _useState8[0],
+      setPlayer1 = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      player2 = _useState10[0],
+      setPlayer2 = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      player3 = _useState12[0],
+      setPlayer3 = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      player4 = _useState14[0],
+      setPlayer4 = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      player5 = _useState16[0],
+      setPlayer5 = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState18 = _slicedToArray(_useState17, 2),
+      player6 = _useState18[0],
+      setPlayer6 = _useState18[1];
+
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState20 = _slicedToArray(_useState19, 2),
+      player7 = _useState20[0],
+      setPlayer7 = _useState20[1];
+
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState22 = _slicedToArray(_useState21, 2),
+      player8 = _useState22[0],
+      setPlayer8 = _useState22[1];
+
   var plan = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_Top__WEBPACK_IMPORTED_MODULE_3__.UserData);
   var team = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_Top__WEBPACK_IMPORTED_MODULE_3__.TeamData);
 
   var handleClickMatch = function handleClickMatch() {
-    var player1 = player.find(function (v) {
+    setPlayer1(player.find(function (v) {
       return v.name === plan[0].name;
-    });
-    var player2 = player.find(function (v) {
+    }));
+    setPlayer2(player.find(function (v) {
       return v.name === plan[1].name;
-    });
-    var player3 = player.find(function (v) {
+    }));
+    setPlayer3(player.find(function (v) {
       return v.name === plan[2].name;
-    });
-    var player4 = player.find(function (v) {
+    }));
+    setPlayer4(player.find(function (v) {
       return v.name === plan[3].name;
-    });
-    var player5 = player.find(function (v) {
+    }));
+    setPlayer5(player.find(function (v) {
       return v.name === team[0].name;
-    });
-    var player6 = player.find(function (v) {
+    }));
+    setPlayer6(player.find(function (v) {
       return v.name === team[1].name;
-    });
-    var player7 = player.find(function (v) {
+    }));
+    setPlayer7(player.find(function (v) {
       return v.name === team[2].name;
-    });
-    var player8 = player.find(function (v) {
+    }));
+    setPlayer8(player.find(function (v) {
       return v.name === team[3].name;
-    });
+    }));
     console.log({
       player1: player1
     });
@@ -2344,12 +2384,72 @@ var Match = function Match() {
     console.log({
       player4: player4
     });
+  }; // ランダムな数値
 
-    if (player1.power + player2.power + player3.power + player4.power > 3 && countA <= 14) {
-      setCountA(countA + 1);
-    }
+
+  var randRange = function randRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    var id = setInterval(function () {
+      if (countA > 16) {
+        alert("Aチームの勝ち！");
+        setCountA(0);
+        setCountB(0);
+        setPlayer1("");
+        setPlayer2("");
+        setPlayer3("");
+        setPlayer4("");
+        setPlayer5("");
+        setPlayer6("");
+        setPlayer7("");
+        setPlayer8("");
+      } else if (countB > 16) {
+        alert("Bチームの勝ち！");
+        setCountA(0);
+        setCountB(0);
+        setPlayer1("");
+        setPlayer2("");
+        setPlayer3("");
+        setPlayer4("");
+        setPlayer5("");
+        setPlayer6("");
+        setPlayer7("");
+        setPlayer8("");
+      } else if (countA > 14 && countA - countB > 1) {
+        alert("Aチームの勝ち！");
+        setCountA(0);
+        setCountB(0);
+        setPlayer1("");
+        setPlayer2("");
+        setPlayer3("");
+        setPlayer4("");
+        setPlayer5("");
+        setPlayer6("");
+        setPlayer7("");
+        setPlayer8("");
+      } else if (countB > 14 && countB - countA > 1) {
+        alert("Bチームの勝ち！");
+        setCountA(0);
+        setCountB(0);
+        setPlayer1("");
+        setPlayer2("");
+        setPlayer3("");
+        setPlayer4("");
+        setPlayer5("");
+        setPlayer6("");
+        setPlayer7("");
+        setPlayer8("");
+      } else if (countA <= 16 && player1.power > 0) {
+        setCountA(countA + 1);
+        console.log(countA);
+      }
+    }, 1000);
+    return function () {
+      return clearInterval(id);
+    };
+  }, [countA, countB, player1, player2, player3, player4, player5, player6, player7, player8]);
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     getPlayer();
   }, []);
